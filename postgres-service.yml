@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels:
+    name: db-service
+    app: kodekloud-kub-course-oct-18
+spec:
+  ports:
+  - port: 5432
+    targetPort: 5432
+  selector:
+    name: postgress-pod
+    app: kodekloud-kub-course-oct-18

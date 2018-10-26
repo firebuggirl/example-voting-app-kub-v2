@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-app-deployment
+  labels:
+    app: kodekloud-kub-course-oct-18
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: worker-app-pod
+      app: kodekloud-kub-course-oct-18
+  template:
+    metadata:
+      name: worker-app-pod
+      labels:
+        name: worker-app-pod
+        app: kodekloud-kub-course-oct-18
+    spec:
+      containers:
+      - name: worker-app
+        image: dockersamples/examplevotingapp_worker
